@@ -3,6 +3,7 @@
 int main()
 {
 	Game game;
+	game.loadConfig();
 	game.createWindow();
 	return 0;
 }

@@ -5,16 +5,21 @@ void Game::createWindow(){
   RenderWindow window(VideoMode(getWidth(), getHight()), "NAME");
   RenderWindow * pointer;
   pointer = &window;
-  while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+  createMainLoop(*pointer);
+}
 
-        window.clear();
-        window.display();
+void Game::createMainLoop(RenderWindow &window){
+  while(state != END){
+    Event event;
+    while (window.pollEvent(event))
+    {
+        if (event.type == Event::Closed){
+          window.close();
+          state = END;
+        }
     }
+
+    window.clear();
+    window.display();
+  }
 }

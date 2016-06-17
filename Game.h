@@ -1,9 +1,10 @@
 #include "Initialisation.h"
+#include "Menu.h"
 
 using namespace std;
 using namespace sf;
 
-class Game: public Initialisation{
+class Game: public Initialisation, public Menu{
   private:
 
   protected:
@@ -12,5 +13,6 @@ class Game: public Initialisation{
 
   public:
     void createWindow();
+    void createMainLoop(RenderWindow&);
 
 };

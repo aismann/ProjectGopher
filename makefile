@@ -1,5 +1,5 @@
-build: main.o Initialisation.o pugixml.o Game.o
-	g++ main.o Initialisation.o pugixml.o Game.o -o build -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+build: main.o Initialisation.o pugixml.o Game.o Menu.o
+	g++ main.o Initialisation.o pugixml.o Game.o Menu.o -o build -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 main.o: main.cpp
 	g++ -c -std=c++0x main.cpp
@@ -12,6 +12,9 @@ pugixml.o: ./data/lib/pugixml/pugixml.cpp ./data/lib/pugixml/pugixml.hpp
 
 Game.o: Game.h Game.cpp
 	g++ -c -std=c++0x Game.h Game.cpp
+
+Menu.o: Menu.h Menu.cpp
+	g++ -c -std=c++0x Menu.h Menu.cpp
 
 clean:
 	rm -f *.o *.gch
