@@ -2,7 +2,7 @@
 
 void Game::createWindow(){
   state = INITIALISATION;
-  RenderWindow window(VideoMode(getWidth(), getHight()), "NAME");
+  RenderWindow window(VideoMode(getWidth(), getHight()), "ProjectGopher");
   RenderWindow * pointer;
   pointer = &window;
   createMainLoop(*pointer);

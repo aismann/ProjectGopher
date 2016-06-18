@@ -1,10 +1,13 @@
 #include "Initialisation.h"
 #include "Menu.h"
+#include "SplashScreen.h"
 
 using namespace std;
 using namespace sf;
 
-class Game: public Initialisation, public Menu{
+class Game: public Initialisation,
+            public Menu,
+            public SplashScreen{
   private:
 
   protected:
