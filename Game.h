@@ -12,6 +12,7 @@ class Game: public Initialisation,
     Clock clock;
     unsigned int frame;
     unsigned int fps;
+    
   protected:
     enum gameState {INITIALISATION, MENU, END, SPLASHSCREEN};
     gameState state;

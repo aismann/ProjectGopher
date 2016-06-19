@@ -13,15 +13,19 @@ void SplashScreen::loadSfmlLogoSprite(){
   sfmlLogoSprite.setTexture(sfmlLogoTexture);
 }
 
-void SplashScreen::openSplashScreen(RenderWindow &window){
+void SplashScreen::openSplashScreen(RenderWindow &window, int width, int hight){
   loadSfmlLogoTexture();
   loadSfmlLogoSprite();
-  sfmlLogoSprite.setPosition(400 - 170, 300 - 120);
+  sfmlLogoSprite.setPosition(LogoWidth(width), LogoHight(hight));
   window.clear();
   window.draw(sfmlLogoSprite);
   window.display();
 }
 
-Sprite SplashScreen::getSfmlLogoSprite(){
-  return sfmlLogoSprite;
+int SplashScreen::LogoWidth(int width){
+  return width/2 - LOGO_WIDTH/2;
+}
+
+int SplashScreen::LogoHight(int hight){
+  return hight/2 - LOGO_HIGHT/2;
 }

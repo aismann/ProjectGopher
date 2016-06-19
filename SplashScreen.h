@@ -18,8 +18,9 @@ protected:
   const int LOGO_WIDTH = 373;
   const int LOGO_HIGHT = 113;
 public:
-  void openSplashScreen(RenderWindow&);
+  void openSplashScreen(RenderWindow&, int, int);
   void loadSfmlLogoTexture();
   void loadSfmlLogoSprite();
-  Sprite getSfmlLogoSprite();
+  int LogoWidth(int);
+  int LogoHight(int);
 };
