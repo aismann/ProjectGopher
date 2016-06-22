@@ -25,7 +25,7 @@ void Game::createMainLoop(RenderWindow &window){
     }
     switch(state){
       case gameState::SPLASHSCREEN:{
-          openSplashScreen(window, getWidth(), getHight());
+          displaySplash(window, getWidth(), getHight());
         break;
       }
       case gameState::MENU:{

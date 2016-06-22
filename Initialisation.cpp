@@ -43,7 +43,7 @@
     xml_document doc;
     doc.load_file("data/core/config.xml");
     xml_node config = doc.child("config");
-    //set graphics settings
+    //graphics settings
     xml_node graphics = config.child("graphics");
     xml_attribute width = graphics.attribute("width");
     width.set_value(getWidth());
@@ -52,13 +52,13 @@
     xml_attribute mode = graphics.attribute("mode");
     string str = "dfdfd";
     mode.set_value(getMode().c_str());
-    //set audio settings
+    //audio settings
     xml_node audio = config.child("audio");
     xml_attribute fx = graphics.attribute("fx");
     fx.set_value(getVolumeFX());
     xml_attribute music = graphics.attribute("music");
     music.set_value(getVolumeMusic());
-    //set keyBinds settings
+    //keyBinds settings
     xml_node keyBinds = config.child("keyBinds");
     xml_attribute up = graphics.attribute("up");
     up.set_value(getUpKey().c_str());
@@ -72,8 +72,12 @@
     fire.set_value(getFireKey().c_str());
     xml_attribute shield = graphics.attribute("shield");
     shield.set_value(getShieldKey().c_str());
-    //save config to core location
+    //save config
     doc.save_file("data/core/config.xml");
+
+/*
+      doc.save_file("data/core/config.xml");
+*/
   }
   //graphics setters & getters
   int Initialisation::getWidth(){
