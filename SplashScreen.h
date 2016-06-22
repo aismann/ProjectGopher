@@ -10,23 +10,14 @@ using namespace sf;
 
 class SplashScreen{
 private:
-  Texture sfmlLogoTexture;
-  Sprite sfmlLogoSprite;
-  string sfmlLogoLocation = "data/graphics/SplashScreen/sfml-logo-small.png";
-
-  const string fontLocation = "data/font/font.ttf";
   Font font;
+  const string fontLocation = "data/font/font.ttf";
+  const string titleString = "Project::Gopher";
+  const string pressKeyString = "press any key..";
 
 protected:
-  const int LOGO_WIDTH = 373;
-  const int LOGO_HIGHT = 113;
-public:
-  /*void openSplashScreen(RenderWindow&, int, int);
-  void loadSfmlLogoTexture();
-  void loadSfmlLogoSprite();
-  int LogoWidth(int);
-  int LogoHight(int);*/
 
+public:
   void loadFont();
   int centerWidth(int);
   int centerHight(int);
