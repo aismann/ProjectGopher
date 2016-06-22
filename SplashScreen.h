@@ -10,6 +10,10 @@ using namespace sf;
 
 class SplashScreen{
 private:
+  Texture LogoTexture;
+  Sprite LogoSprite;
+  string LogoLocation = "data/graphics/SplashScreen/logo.png";
+
   Font font;
   const string fontLocation = "data/font/font.ttf";
   const string titleString = "Project::Gopher";
@@ -18,10 +22,19 @@ private:
 protected:
 
 public:
+  void displaySplash(RenderWindow&, int, int);
+  void eventHandeler(RenderWindow&, int, int);
+  
+  Sprite setLogo(int, int);
+  void loadLogoTexture();
+  void loadLogoSprite();
+  int LogoWidth(int);
+  int LogoHight(int);
+
   void loadFont();
   int centerWidth(int);
   int centerHight(int);
-  void displaySplash(RenderWindow&, int, int);
   Text setTitle(int, int);
   Text setPressKey(int, int);
+  Text action(int, int);
 };
