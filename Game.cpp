@@ -25,11 +25,14 @@ void Game::createMainLoop(RenderWindow &window){
     }
     switch(state){
       case gameState::SPLASHSCREEN:{
-          displaySplash(window, getWidth(), getHight());
+        if(displaySplash(window, getWidth(), getHight()) != true)
+          state = SPLASHSCREEN;
+        else state = MENU;
         break;
       }
       case gameState::MENU:{
-
+        window.close();
+        state = END;
         break;
       }
     }

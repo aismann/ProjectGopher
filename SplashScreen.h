@@ -22,9 +22,9 @@ private:
 protected:
 
 public:
-  void displaySplash(RenderWindow&, int, int);
-  void eventHandeler(RenderWindow&, int, int);
-  
+  bool displaySplash(RenderWindow&, int, int);
+  bool eventHandeler(RenderWindow&);
+
   Sprite setLogo(int, int);
   void loadLogoTexture();
   void loadLogoSprite();

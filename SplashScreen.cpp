@@ -1,5 +1,22 @@
 #include "SplashScreen.h"
 
+bool SplashScreen::displaySplash(RenderWindow &window, int width, int hight){
+  window.draw(setPressKey(width, hight));
+  window.draw(setTitle(width, hight));
+  window.draw(setLogo(width, hight));
+  window.display();
+  window.clear(Color(25, 25, 25));
+  return eventHandeler(window);
+}
+
+bool SplashScreen::eventHandeler(RenderWindow &window){
+  Event event;
+  if(window.pollEvent(event) == true){
+    if(event.type == Event::KeyPressed) return true;
+    else return false;
+  }
+}
+
 void SplashScreen::loadLogoTexture(){
   if(!LogoTexture.loadFromFile(LogoLocation, IntRect(0, 0, 256, 256))){
     //err..
@@ -7,18 +24,22 @@ void SplashScreen::loadLogoTexture(){
   LogoTexture.setSmooth(true);
   LogoTexture.setRepeated(false);
 }
+
 void SplashScreen::loadLogoSprite(){
   LogoSprite.setTexture(LogoTexture);
 }
+
 Sprite SplashScreen::setLogo(int width, int hight){
   loadLogoTexture();
   loadLogoSprite();
   LogoSprite.setPosition(LogoWidth(width), LogoHight(hight));
   return LogoSprite;
 }
+
 int SplashScreen::LogoWidth(int width){
   return width/2 - 128;
 }
+
 int SplashScreen::LogoHight(int hight){
   return hight/2 - 200;
 }
@@ -26,24 +47,6 @@ int SplashScreen::LogoHight(int hight){
 void SplashScreen::loadFont(){
   if(!font.loadFromFile(fontLocation)){
     //err
-  }
-}
-
-void SplashScreen::displaySplash(RenderWindow &window, int width, int hight){
-  eventHandeler(window, width, hight);
-  window.draw(setPressKey(width, hight));
-  window.draw(setTitle(width, hight));
-  window.draw(setLogo(width, hight));
-  window.display();
-  window.clear(Color(25, 25, 25));
-}
-
-void SplashScreen::eventHandeler(RenderWindow &window, int width, int hight){
-  Event event;
-  if(window.pollEvent(event) == true){
-    if(event.type == Event::KeyPressed){
-      window.draw(action(width, hight));
-    }
   }
 }
 
