@@ -14,12 +14,12 @@ private:
   Sprite LogoSprite;
   string LogoLocation = "data/graphics/SplashScreen/logo.png";
 
-  Font font;
   const string fontLocation = "data/font/font.ttf";
   const string titleString = "Project::Gopher";
   const string pressKeyString = "press any key..";
 
 protected:
+    Font font;
 
 public:
   bool displaySplash(RenderWindow&, int, int);
@@ -37,4 +37,6 @@ public:
   Text setTitle(int, int);
   Text setPressKey(int, int);
   Text action(int, int);
+
+  Font getFont();
 };

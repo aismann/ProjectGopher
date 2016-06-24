@@ -3,8 +3,8 @@
 void Game::createWindow(){
   state = INITIALISATION;
   //
-  frame = 0;
-  fps = 0;
+  //frame = 0;
+  //fps = 0;
   //
   RenderWindow window(VideoMode(getWidth(), getHight()), "ProjectGopher");
   RenderWindow * pointer;
@@ -31,19 +31,20 @@ void Game::createMainLoop(RenderWindow &window){
         break;
       }
       case gameState::MENU:{
-        window.close();
-        state = END;
+        diaplayMenu(window, getWidth(), getHight());
+        //window.close();
+        //state = END;
         break;
       }
     }
   }
 }
 
-void Game::update(){
+/*void Game::update(){
   if(clock.getElapsedTime().asSeconds() >= 1.f){
     fps = frame;
     frame = 0;
     clock.restart();
   }
   ++frame;
-}
+}*/

@@ -50,6 +50,10 @@ void SplashScreen::loadFont(){
   }
 }
 
+Font SplashScreen::getFont(){
+  return font;
+}
+
 int SplashScreen::centerWidth(int width){
   return width/2;
 }

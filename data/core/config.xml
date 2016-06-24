@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config>
-	<graphics width="1366" hight="768" mode="" />
+	<graphics width="1024" hight="768" mode="" />
 	<audio fx="100" music="100" />
 	<keyBinds up="Up" down="Down" left="Left" right="Right" fire="Space" shield="LControl" />
 </config>
