@@ -1,5 +1,5 @@
-build: main.o Initialisation.o pugixml.o Game.o Menu.o SplashScreen.o
-	g++ main.o Initialisation.o pugixml.o Game.o Menu.o SplashScreen.o -o build -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+build: main.o Initialisation.o pugixml.o Game.o Menu.o SplashScreen.o Options.o
+	g++ main.o Initialisation.o pugixml.o Game.o Menu.o SplashScreen.o Options.o -o build -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 main.o: main.cpp
 	g++ -c -std=c++0x main.cpp
@@ -18,6 +18,10 @@ Menu.o: Menu.h Menu.cpp
 
 SplashScreen.o: SplashScreen.h SplashScreen.cpp
 	g++ -c -std=c++0x SplashScreen.h SplashScreen.cpp
+
+Options.o: Options.h Options.cpp
+	g++ -c -std=c++0x Options.h Options.cpp
+
 
 clean:
 	rm -f *.o *.gch

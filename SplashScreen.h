@@ -12,8 +12,8 @@ class SplashScreen{
 private:
   Texture LogoTexture;
   Sprite LogoSprite;
-  string LogoLocation = "data/graphics/SplashScreen/logo.png";
 
+  const string LogoLocation = "data/graphics/SplashScreen/logo.png";
   const string fontLocation = "data/font/font.ttf";
   const string titleString = "Project::Gopher";
   const string pressKeyString = "press any key..";

@@ -30,7 +30,6 @@ private:
 
 protected:
 
-
 public:
   //load config xml file and set class fields
   void loadConfig();
