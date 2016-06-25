@@ -1,7 +1,3 @@
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
 #include <array>
 #include "SplashScreen.h"
 
@@ -16,7 +12,7 @@ class Menu: public SplashScreen{
 
   public:
     bool diaplayMenu(RenderWindow&, int, int);
-    int menuEvent(RenderWindow&);
+    int menuEvent(RenderWindow&, Text*);
     int width(int);
     int height(int);
 

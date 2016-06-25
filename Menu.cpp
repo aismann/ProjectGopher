@@ -17,9 +17,9 @@ bool Menu::diaplayMenu(RenderWindow &window, int width, int height){
 }
 
 
-int Menu::menuEvent(RenderWindow&){
+/*int Menu::menuEvent(RenderWindow&){
   return 0;
-}
+}*/
 
 
 int Menu::width(int width){
@@ -28,4 +28,40 @@ int Menu::width(int width){
 
 int Menu::height(int height){
   return height/2;
+}
+
+int Menu::menuEvent(RenderWindow &window, Text menuText[4]){
+  //window.setMouseCursorVisible(true);
+  Vector2f mouse(Mouse::getPosition(window));
+  Event event;
+
+  if(window.pollEvent(event) == true){
+    if(menuText[0].getGlobalBounds().contains(mouse) &&
+    event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left){
+      return 0;
+    }
+    else if(menuText[1].getGlobalBounds().contains(mouse) &&
+    event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left){
+      return 1;
+    }
+    else if(menuText[2].getGlobalBounds().contains(mouse) &&
+    event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left){
+      return 2;
+    }
+    else if(menuText[3].getGlobalBounds().contains(mouse) &&
+    event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left){
+      return 3;
+    }
+  }
+
+  for(int i = 0; i < 4; i++)
+    if(menuText[i].getGlobalBounds().contains(mouse))
+      menuText[i].setColor(Color::Yellow);
+    else menuText[i].setColor(Color::White);
+
+  window.clear();
+  for(int i = 0; i < 4; i++)
+    window.draw(menuText[i]);
+  window.display();
+
 }
