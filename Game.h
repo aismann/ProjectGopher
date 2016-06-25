@@ -13,7 +13,7 @@ class Game: public Initialisation,
     unsigned int fps;
 
   protected:
-    enum gameState {INITIALISATION, MENU, END, SPLASHSCREEN};
+    enum gameState {INITIALISATION, MENU, END, SPLASHSCREEN, OPTIONS, NEW_GAME, CONTINUE};
     gameState state;
 
   public:

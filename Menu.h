@@ -6,14 +6,17 @@ using namespace sf;
 
 class Menu: public SplashScreen{
   private:
-    //const string content[4] {"NEW GAME", "CONTINUE", "OPTIONS", "END"};
+    Text menuText[4];
+    string menuString[4] = {"NEW GAME", "CONTINUE", "OPTIONS", "EXIT"};
   protected:
-    enum menuState {END, OPTIONS, CONTINUE, NEW_GAME};
 
   public:
-    bool diaplayMenu(RenderWindow&, int, int);
-    int menuEvent(RenderWindow&, Text*);
-    int width(int);
-    int height(int);
+    int displayMenu(RenderWindow&, int, int);
+    void setFonts(RenderWindow&, int, int);
+    int menuWidth(int);
+    int menuHeight(int);
+    Vector2i getMousePosition(RenderWindow&);
+    void highlight(RenderWindow&);
+    int menuListener(RenderWindow&);
 
 };

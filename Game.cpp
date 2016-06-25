@@ -1,11 +1,7 @@
-#include "Game.h"
+ #include "Game.h"
 
 void Game::createWindow(){
   state = INITIALISATION;
-  //
-  //frame = 0;
-  //fps = 0;
-  //
   RenderWindow window(VideoMode(getWidth(), getHight()), "ProjectGopher");
   RenderWindow * pointer;
   pointer = &window;
@@ -31,20 +27,50 @@ void Game::createMainLoop(RenderWindow &window){
         break;
       }
       case gameState::MENU:{
-        diaplayMenu(window, getWidth(), getHight());
-        //window.close();
-        //state = END;
+        switch(displayMenu(window, getWidth(), getHight())){
+          case 1:{
+            state = NEW_GAME;
+            break;
+          }
+          case 2:{
+            state = CONTINUE;
+            break;
+          }
+          case 3:{
+            state = OPTIONS;
+            break;
+          }
+          case 4:{
+            state = END;
+            break;
+          }
+          case 0:{
+            state = MENU;
+            break;
+          }
+        }
+        break;
+      }
+      case gameState::NEW_GAME:{
+        window.close();
+        state = END;
+        break;
+      }
+      case gameState::CONTINUE:{
+        window.close();
+        state = END;
+        break;
+      }
+      case gameState::OPTIONS:{
+        window.close();
+        state = END;
+        break;
+      }
+      case gameState::END:{
+        window.close();
+        state = END;
         break;
       }
     }
   }
 }
-
-/*void Game::update(){
-  if(clock.getElapsedTime().asSeconds() >= 1.f){
-    fps = frame;
-    frame = 0;
-    clock.restart();
-  }
-  ++frame;
-}*/
