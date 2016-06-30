@@ -1,4 +1,9 @@
-#include "Menu.h"
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/System.hpp>
+#include <string>
+#include <iostream>
 
 using namespace std;
 using namespace sf;
@@ -23,13 +28,13 @@ class Options{
     int volumeAudio;
     string keyBinds[6];
   protected:
-
+    Font optionsFont;
   public:
     int displayOptions(RenderWindow&, int, int);
     void setOptionsFonts(RenderWindow&, int, int);
     int optionsWidth(int);
     int optionsHeight(int);
-    //Vector2i getMousePosition(RenderWindow&);
+    Vector2i getMousePosition(RenderWindow&);
     void optionsHighlight(RenderWindow&);
     int optionsListener(RenderWindow&);
 

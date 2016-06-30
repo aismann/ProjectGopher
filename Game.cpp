@@ -62,8 +62,8 @@ void Game::createMainLoop(RenderWindow &window){
         break;
       }
       case gameState::OPTIONS:{
-        window.close();
-        state = END;
+        displayOptions(window, getWidth(), getHight());
+        state = OPTIONS;
         break;
       }
       case gameState::END:{

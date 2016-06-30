@@ -28,11 +28,11 @@ int Menu::menuHeight(int height){
   return height/2;
 }
 
-Vector2i Menu::getMousePosition(RenderWindow &window){
+/*Vector2i Menu::getMousePosition(RenderWindow &window){
   window.setMouseCursorVisible(true);
   Vector2i mouse = Mouse::getPosition( window );
   return mouse;
-}
+}*/
 
 void Menu::highlight(RenderWindow &window){
   for(int i = 0; i < 4; i++){

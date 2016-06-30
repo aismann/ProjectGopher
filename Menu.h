@@ -1,9 +1,11 @@
 #include "SplashScreen.h"
+#include "Options.h"
 
 using namespace std;
 using namespace sf;
 
-class Menu: public SplashScreen{
+class Menu: public SplashScreen,
+            public Options{
   private:
     Text menuText[4];
     string menuString[4] = {"NEW GAME", "CONTINUE", "OPTIONS", "EXIT"};
@@ -14,7 +16,7 @@ class Menu: public SplashScreen{
     void setFonts(RenderWindow&, int, int);
     int menuWidth(int);
     int menuHeight(int);
-    Vector2i getMousePosition(RenderWindow&);
+    //Vector2i getMousePosition(RenderWindow&);
     void highlight(RenderWindow&);
     int menuListener(RenderWindow&);
 
