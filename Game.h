@@ -1,23 +1,19 @@
-#include "Initialisation.h"
-#include "Menu.h"
-
-using namespace std;
-using namespace sf;
+#include "Options.h"
+#include "MainMenu.h"
+#include "Splash.h"
 
 class Game: public Initialisation,
-            public Menu{
-  private:
-    Clock clock;
-    unsigned int frame;
-    unsigned int fps;
+            public Splash{
+private:
+  Menu * menu;
+  Menu * options;
+protected:
+  enum gameState {INITIALISATION, MENU, END, SPLASHSCREEN, OPTIONS, NEW_GAME, CONTINUE};
+  gameState state;
 
-  protected:
-    enum gameState {INITIALISATION, MENU, END, SPLASHSCREEN, OPTIONS, NEW_GAME, CONTINUE};
-    gameState state;
-
-  public:
-    void createWindow();
-    void createMainLoop(RenderWindow&);
-    void update();
-
+public:
+  Game();
+  void createWindow();
+  void createMainLoop(RenderWindow&);
+  void endingEvent(RenderWindow&);
 };

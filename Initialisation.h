@@ -1,12 +1,12 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdio>
 #include "data/lib/pugixml/pugixml.hpp"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdio>
 
 using namespace std;
 using namespace pugi;
@@ -27,10 +27,10 @@ private:
   string rightKey;
   string fireKey;
   string shieldKey;
-
 protected:
 
 public:
+  Initialisation();
   //load config xml file and set class fields
   void loadConfig();
   //save current class fields to xml config file

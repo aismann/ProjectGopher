@@ -1,24 +1,33 @@
- #include "Game.h"
+#include "Game.h"
+
+Game::Game(){
+  loadConfig();
+  menu = new MainMenu();
+  options = new Options();
+}
 
 void Game::createWindow(){
-  state = INITIALISATION;
+  state = SPLASHSCREEN;
   RenderWindow window(VideoMode(getWidth(), getHight()), "ProjectGopher");
   RenderWindow * pointer;
   pointer = &window;
-  state = SPLASHSCREEN;
   createMainLoop(*pointer);
+}
+
+void Game::endingEvent(RenderWindow &window){
+  Event event;
+  while (window.pollEvent(event))
+  {
+      if (event.type == Event::Closed){
+        window.close();
+        state = END;
+      }
+  }
 }
 
 void Game::createMainLoop(RenderWindow &window){
   while(state != END){
-    Event event;
-    while (window.pollEvent(event))
-    {
-        if (event.type == Event::Closed){
-          window.close();
-          state = END;
-        }
-    }
+    endingEvent(window);
     switch(state){
       case gameState::SPLASHSCREEN:{
         if(displaySplash(window, getWidth(), getHight()) != true)
@@ -27,7 +36,7 @@ void Game::createMainLoop(RenderWindow &window){
         break;
       }
       case gameState::MENU:{
-        switch(displayMenu(window, getWidth(), getHight())){
+        switch(menu -> displayMenu(window, getWidth(), getHight())){
           case 1:{
             state = NEW_GAME;
             break;
@@ -45,7 +54,7 @@ void Game::createMainLoop(RenderWindow &window){
             break;
           }
           case 0:{
-            state = MENU;
+            menu -> displayMenu(window, getWidth(), getHight());
             break;
           }
         }
@@ -62,8 +71,7 @@ void Game::createMainLoop(RenderWindow &window){
         break;
       }
       case gameState::OPTIONS:{
-        displayOptions(window, getWidth(), getHight());
-        state = OPTIONS;
+        options -> displayMenu(window, getWidth(), getHight());
         break;
       }
       case gameState::END:{

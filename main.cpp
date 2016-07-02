@@ -1,9 +1,6 @@
 #include "Game.h"
-
-int main()
-{
-	Game game;
-	game.loadConfig();
-	game.createWindow();
-	return 0;
+int main(){
+  Game game;
+  game.createWindow();
+  return 0;
 }
