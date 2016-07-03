@@ -18,16 +18,16 @@ int MainMenu::EventHandeler(RenderWindow &window){
   Event event;
   while(window.pollEvent(event)){
     if(menuText[0].getGlobalBounds().contains(static_cast <Vector2f> (getMousePosition(window)))
-    && event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left)
+    && event.type == Event::MouseButtonReleased && event.mouseButton.button == Mouse::Left)
       return 1;
     else if(menuText[1].getGlobalBounds().contains(static_cast <Vector2f> (getMousePosition(window)))
-    && event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left)
+    && event.type == Event::MouseButtonReleased && event.mouseButton.button == Mouse::Left)
       return 2;
     else if(menuText[2].getGlobalBounds().contains(static_cast <Vector2f> (getMousePosition(window)))
-    && event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left)
+    && event.type == Event::MouseButtonReleased && event.mouseButton.button == Mouse::Left)
       return 3;
     else if(menuText[3].getGlobalBounds().contains(static_cast <Vector2f> (getMousePosition(window)))
-    && event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left)
+    && event.type == Event::MouseButtonReleased && event.mouseButton.button == Mouse::Left)
       return 4;
   }
 }
@@ -51,7 +51,7 @@ void MainMenu::highlight(RenderWindow &window){
 void MainMenu::setFonts(RenderWindow &window, int width, int height){
   for(int i = 0; i < 4; i++){
     menuText[i].setFont(font);
-    menuText[i].setCharacterSize(20);
+    menuText[i].setCharacterSize(40);
     menuText[i].setString(menuString[i]);
     menuText[i].setPosition((horisontalPosition(width) - menuText[i].getGlobalBounds().width/2), (verticalPosition(height) + i * 30));
     highlight(window);

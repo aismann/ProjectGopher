@@ -20,7 +20,7 @@ MainMenu.o: MainMenu.h MainMenu.cpp
 	g++ -c -std=c++0x MainMenu.h MainMenu.cpp
 
 Options.o: Options.h Options.cpp
-	g++ -c -std=c++0x Options.h Options.cpp
+	g++ -Wall -c -std=c++0x Options.h Options.cpp
 
 Splash.o: Splash.h Splash.cpp
 	g++ -c -std=c++0x Splash.h Splash.cpp

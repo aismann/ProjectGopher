@@ -12,9 +12,10 @@ bool Splash::displaySplash(RenderWindow &window, int width, int hight){
 bool Splash::eventHandeler(RenderWindow &window){
   Event event;
   if(window.pollEvent(event) == true){
-    if(event.type == Event::KeyPressed) return true;
-    else return false;
+    if(event.type == Event::KeyPressed ||
+       event.type == Event::MouseButtonReleased && event.mouseButton.button == Mouse::Left) return true;
   }
+  return false;
 }
 
 void Splash::loadLogoTexture(){

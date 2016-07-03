@@ -71,7 +71,10 @@ void Game::createMainLoop(RenderWindow &window){
         break;
       }
       case gameState::OPTIONS:{
-        options -> displayMenu(window, getWidth(), getHight());
+        if((options -> displayMenu(window, getWidth(), getHight())) == 0){
+            state = MENU;
+            break;
+        }
         break;
       }
       case gameState::END:{
