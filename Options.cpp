@@ -85,6 +85,24 @@ void Options::displayKeyBinds(RenderWindow &window){
     window.draw(optionsText[keybindValue]);
     window.display();
     if(getKey(window) != "NONE" ){
+      if(keybindValue == 11){
+        initialisation.setUpKey(getKey(window));
+      }
+      if(keybindValue == 12){
+        initialisation.setDownKey(getKey(window));
+      }
+      if(keybindValue == 13){
+        initialisation.setLeftKey(getKey(window));
+      }
+      if(keybindValue == 14){
+        initialisation.setRightKey(getKey(window));
+      }
+      if(keybindValue == 15){
+        initialisation.setFireKey(getKey(window));
+      }
+      if(keybindValue == 16){
+        initialisation.setShieldKey(getKey(window));
+      }
       state = OPTIONS;
     }
 }
@@ -136,7 +154,7 @@ int Options::EventHandeler(RenderWindow &window){
     }
     if(optionsText[9].getGlobalBounds().contains(static_cast <Vector2f> (getMousePosition(window)))
     && event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left){
-      keybindValue = 16;
+      initialisation.saveConfig();
       state = RETURN;
     }
   }

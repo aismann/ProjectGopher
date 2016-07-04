@@ -7,7 +7,7 @@ Game::Game(){
 }
 
 void Game::createWindow(){
-  state = SPLASHSCREEN;
+  state = OPTIONS;
   RenderWindow window(VideoMode(getWidth(), getHight()), "ProjectGopher");
   RenderWindow * pointer;
   pointer = &window;
